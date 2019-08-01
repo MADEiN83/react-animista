@@ -1,11 +1,11 @@
 {
-  "name": "ztamerelapute",
+  "name": "react-animista",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc && npm run build-css",
-    "build-css": "css-combine ./src/assets/*.css > ./dist/src/assets/index.css"
+    "build-css": "mkdir dist/src/assets && css-combine ./src/assets/*.css > ./dist/src/assets/index.css"
   },
   "keywords": [],
   "author": "",

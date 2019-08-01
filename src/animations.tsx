@@ -1,7 +1,7 @@
 import * as React from "react";
 import AnimationTypes from "./core/animations.enum";
 
-// import "../assets/animations.css";
+import "./assets/index.css";
 
 export interface IProps {
   type: AnimationTypes;

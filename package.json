@@ -1,32 +1,28 @@
 {
-  "name": "react-animista",
+  "name": "ztamerelapute",
   "version": "1.0.0",
-  "description": "todo",
-  "main": "index.js",
-  "dependencies": {
-    "@types/react": "^16.8.24",
-    "awesome-typescript-loader": "^5.2.1",
-    "css-loader": "^3.1.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "style-loader": "^0.23.1",
-    "typescript": "^3.5.3",
-    "webpack": "^4.39.0",
-    "webpack-cli": "^3.3.6"
-  },
-  "devDependencies": {},
+  "description": "",
+  "main": "./dist/index.js",
   "scripts": {
-    "build": "rm -rf dist && tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MADEiN83/react-animista.git"
+    "build": "tsc && npm run build-css",
+    "build-css": "css-combine ./src/assets/*.css > ./dist/src/assets/index.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MADEiN83/react-animista/issues"
+  "devDependencies": {
+    "@types/react": "^16.8.24",
+    "@types/react-dom": "^16.8.5",
+    "@types/react-test-renderer": "^16.8.3",
+    "react-scripts-ts": "^3.1.0",
+    "react-test-renderer": "^16.8.6",
+    "typescript": "^3.5.3"
   },
-  "homepage": "https://github.com/MADEiN83/react-animista#readme"
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "dependencies": {
+    "css-combine": "^1.0.0"
+  }
 }

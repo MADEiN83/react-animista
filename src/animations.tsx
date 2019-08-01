@@ -1,7 +1,7 @@
-import React from "react";
-import AnimationTypes from "../core/animations.enum";
+import * as React from "react";
+import AnimationTypes from "./core/animations.enum";
 
-import "../assets/animations.css";
+// import "../assets/animations.css";
 
 export interface IProps {
   type: AnimationTypes;
@@ -20,5 +20,3 @@ const Animation: React.FC<IProps> = (props: IProps) => {
 };
 
 export default Animation;
-
-export { AnimationTypes };

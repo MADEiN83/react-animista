@@ -11,35 +11,30 @@ export interface IProps {
   delay?: string;
   hover?: boolean;
   viewport?: boolean;
+  disabled?: boolean;
 }
 
 const Animista: React.FC<IProps> = (props: IProps) => {
   const [isVisible, setIsVisible] = React.useState(false);
   const {
-    type,
     children,
     style = {},
     delay,
-    hover = false,
-    viewport = false
+    viewport = false,
+    disabled = false
   } = props;
 
-  const id = `Animista-${Math.random()}`;
-  let className = type.toString();
-  if (hover) className += "-hover";
-  if (viewport && !isVisible) {
-    className = "";
-  }
-
+  const id = generateUniqId();
+  const className = disabled ? "" : buildClassName(props, isVisible);
   const mergedStyles: React.CSSProperties = {
-    animationDelay: delay,
+    animationDelay: disabled ? undefined : delay,
     ...style
   };
 
   return (
     <ViewportListener
       id={id}
-      enabled={viewport && !isVisible}
+      enabled={!disabled && viewport && !isVisible}
       onViewportVisible={() => setIsVisible(true)}
     >
       <div id={id} style={mergedStyles} className={className}>
@@ -47,6 +42,18 @@ const Animista: React.FC<IProps> = (props: IProps) => {
       </div>
     </ViewportListener>
   );
+};
+
+/* UTILS */
+const generateUniqId = () => `Animista-${Math.random()}`;
+const buildClassName = (props: IProps, isVisible: boolean): string => {
+  const { type, hover = false, viewport = false } = props;
+
+  if (viewport && !isVisible) return "";
+
+  let className = type.toString();
+  if (hover) className += "-hover";
+  return className;
 };
 
 export default Animista;

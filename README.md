@@ -22,10 +22,14 @@ import Animista from "react-animista";
 
 **Parameters:**
 
-| Name    | Type            | Description                                  |
-| ------- | --------------- | -------------------------------------------- |
-| `type`  | `AnimistaTypes` | (required) The type of the wanted animation. |
-| `style` | `TDestination`  | (optional) CSS style if needed.              |
+| Name       | Type                  | Description                                                    |
+| ---------- | --------------------- | -------------------------------------------------------------- |
+| `type`     | `AnimistaTypes`       | (required) The type of the wanted animation.                   |
+| `style`    | `React.CSSProperties` | (optional) CSS style if needed.                                |
+| `delay`    | `string`              | (optional) Delay before animation starts.                      |
+| `hover`    | `boolean`             | (optional) If animation must starts on hover.                  |
+| `viewport` | `boolean`             | (optional) If animation must stats is visible on the viewport. |
+| `disabled` | `boolean`             | (optional) If animation must be stopped.                       |
 
 ## Example
 
@@ -36,18 +40,12 @@ import Animista, { AnimistaTypes } from "react-animista";
 const App: React.FC = () => {
   return (
     <article>
-      <Animista
-        type={AnimistaTypes.ROTATE_90_BL_CW}
-        style={{
-          width: 120,
-          height: 120,
-          backgroundColor: "lightblue",
-          display: "inline-block",
-          margin: 5,
-          textAlign: "center"
-        }}
-      >
-        Content goes here.
+      <Animista type={AnimistaTypes.SCALE_UP_TOP} viewport disabled>
+        Content animated even if isn't in the viewport
+      </Animista>
+
+      <Animista type={AnimistaTypes.SCALE_UP_DOWN} viewport disabled>
+        Content animated if in the viewport
       </Animista>
     </article>
   );

@@ -7,13 +7,19 @@ export interface IProps {
   type: AnimistaTypes;
   children: React.ReactNode;
   style?: React.CSSProperties;
+  delay?: string;
 }
 
 const Animista: React.FC<IProps> = (props: IProps) => {
-  const { type, children, style } = props;
+  const { type, children, style = {}, delay } = props;
+
+  const mergedStyles: React.CSSProperties = {
+    animationDelay: delay,
+    ...style
+  };
 
   return (
-    <div style={style} className={type}>
+    <div style={mergedStyles} className={type}>
       {children}
     </div>
   );

@@ -1,4 +1,5 @@
 import * as React from "react";
+import ViewportListener from "./core/ViewportListener";
 import AnimistaTypes from "./core/animista.types";
 
 import "./assets/index.css";
@@ -9,21 +10,42 @@ export interface IProps {
   style?: React.CSSProperties;
   delay?: string;
   hover?: boolean;
+  viewport?: boolean;
 }
 
 const Animista: React.FC<IProps> = (props: IProps) => {
-  const { type, children, style = {}, delay, hover = false } = props;
+  const [isVisible, setIsVisible] = React.useState(false);
+  const {
+    type,
+    children,
+    style = {},
+    delay,
+    hover = false,
+    viewport = false
+  } = props;
 
-  const className = `${type}${hover ? "-hover" : ""}`;
+  const id = `Animista-${Math.random()}`;
+  let className = type.toString();
+  if (hover) className += "-hover";
+  if (viewport && !isVisible) {
+    className = "";
+  }
+
   const mergedStyles: React.CSSProperties = {
     animationDelay: delay,
     ...style
   };
 
   return (
-    <div style={mergedStyles} className={className}>
-      {children}
-    </div>
+    <ViewportListener
+      id={id}
+      enabled={viewport && !isVisible}
+      onViewportVisible={() => setIsVisible(true)}
+    >
+      <div id={id} style={mergedStyles} className={className}>
+        {children}
+      </div>
+    </ViewportListener>
   );
 };
 

@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "rm -rf dist && tsc && npm run build-css",
-    "build-css": "mkdir ./dist/src/assets && css-combine ./src/assets/*.css > ./dist/src/assets/full.css && npm run minify-css",
+    "build-css": "mkdir ./dist/src/assets && css-combine ./src/assets/*.css > ./dist/src/assets/index.css",
     "minify-css": "uglifycss ./dist/src/assets/full.css > ./dist/src/assets/index.css && rm ./dist/src/assets/full.css"
   },
   "keywords": [],

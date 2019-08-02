@@ -8,18 +8,20 @@ export interface IProps {
   children: React.ReactNode;
   style?: React.CSSProperties;
   delay?: string;
+  hover?: boolean;
 }
 
 const Animista: React.FC<IProps> = (props: IProps) => {
-  const { type, children, style = {}, delay } = props;
+  const { type, children, style = {}, delay, hover = false } = props;
 
+  const className = `${type}${hover ? "-hover" : ""}`;
   const mergedStyles: React.CSSProperties = {
     animationDelay: delay,
     ...style
   };
 
   return (
-    <div style={mergedStyles} className={type}>
+    <div style={mergedStyles} className={className}>
       {children}
     </div>
   );

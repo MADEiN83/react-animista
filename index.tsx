@@ -1,5 +1,5 @@
-import Animations from "./src/animations";
-import AnimationTypes from "./src/core/animations.enum";
+import Animista from "./src/animista";
+import AnimistaTypes from "./src/core/animista.types";
 
-export default Animations;
-export { AnimationTypes };
+export default Animista;
+export { AnimistaTypes };

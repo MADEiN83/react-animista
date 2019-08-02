@@ -1,2 +1,3 @@
-src
+./src
 .gitignore
+**/*.tsx

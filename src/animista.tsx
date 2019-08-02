@@ -1,15 +1,15 @@
 import * as React from "react";
-import AnimationTypes from "./core/animations.enum";
+import AnimistaTypes from "./core/animista.types";
 
 import "./assets/index.css";
 
 export interface IProps {
-  type: AnimationTypes;
+  type: AnimistaTypes;
   children: React.ReactNode;
   style?: React.CSSProperties;
 }
 
-const Animation: React.FC<IProps> = (props: IProps) => {
+const Animista: React.FC<IProps> = (props: IProps) => {
   const { type, children, style } = props;
 
   return (
@@ -19,4 +19,4 @@ const Animation: React.FC<IProps> = (props: IProps) => {
   );
 };
 
-export default Animation;
+export default Animista;

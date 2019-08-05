@@ -276,3 +276,7 @@ SHADOW_INSET_TL
 SHADOW_INSET_TOP
 SHADOW_INSET_TR
 ```
+
+# Credits
+
+All amazing CSS animations are made by [Ana Travas](https://twitter.com/ana108) & [Sergej Skrjanec](https://twitter.com/sergej108).

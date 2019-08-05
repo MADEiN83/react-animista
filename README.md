@@ -28,17 +28,23 @@ import Animista from "react-animista";
 
 **Parameters:**
 
-| Name       | Type                         | Description                                                    |
-| ---------- | ---------------------------- | -------------------------------------------------------------- |
-| `type`     | `AnimistaTypes`              | (required) The type of the wanted animation.                   |
-| `style`    | `React.CSSProperties`        | (optional) CSS style if needed.                                |
-| `delay`    | `string` (default: `0`)      | (optional) Delay before animation starts.                      |
-| `hover`    | `boolean`                    | (optional) If animation must starts on hover.                  |
-| `viewport` | `boolean` (default: `true`)  | (optional) If animation must stats is visible on the viewport. |
-| `disabled` | `boolean` (default: `false`) | (optional) If animation must be stopped.                       |
-| `tag`      | `string` (default: `div`)    | (optional) The tag to use.                                     |
+| Name             | Type                                                                             | Description                                   |
+| ---------------- | -------------------------------------------------------------------------------- | --------------------------------------------- |
+| `type`           | `string | AnimistaTypes`                                                         | (required) The type of the wanted animation.  |
+| `style`          | `React.CSSProperties`                                                            | (optional) CSS style if needed.               |
+| `delay`          | `string` (default: `0ms`)                                                        | (optional) Delay before animation starts.     |
+| `duration`       | `string` (default: `0ms`)                                                        | (optional) Duration of the animation.         |
+| `hover`          | `boolean`                                                                        | (optional) If animation must starts on hover. |
+| `disabled`       | `boolean` (default: `false`)                                                     | (optional) If animation must be stopped.      |
+| `tag`            | `string` (default: `div`)                                                        | (optional) The tag to use.                    |
+| `className`      | `string`                                                                         | (optional) Aditionnal classes.                |
+| `direction`      | `normal|reverse|alternate|alternate-reverse|initial|inherit` (default: `normal`) | (optional) Animation direction                |
+| `iterationCount` | `number` (default: `1`)                                                          | (optional) The number of iterations           |
+| `onClick`        | `Function`                                                                       | (optional) On click handler                   |
 
 ## Example
+
+### Basic animation
 
 ```tsx
 import React from "react";
@@ -47,12 +53,152 @@ import Animista, { AnimistaTypes } from "react-animista";
 const App: React.FC = () => {
   return (
     <article>
-      <Animista type={AnimistaTypes.SCALE_UP_TOP}>
-        Content animated even if isn't in the viewport
-      </Animista>
+      <Animista type={AnimistaTypes.SCALE_UP_TOP}>Basic animation</Animista>
+    </article>
+  );
+};
 
-      <Animista type={AnimistaTypes.SCALE_UP_DOWN} viewport>
-        Content animated if in the viewport
+export default App;
+```
+
+### Reversed animation
+
+```tsx
+import React from "react";
+import Animista, { AnimistaTypes } from "react-animista";
+
+const App: React.FC = () => {
+  return (
+    <article>
+      <Animista type={AnimistaTypes.SCALE_UP_TOP} direction="reverse">
+        Reversed animation
+      </Animista>
+    </article>
+  );
+};
+
+export default App;
+```
+
+### Use another HTML tag
+
+```tsx
+import React from "react";
+import Animista, { AnimistaTypes } from "react-animista";
+
+const App: React.FC = () => {
+  return (
+    <article>
+      <Animista type={AnimistaTypes.SCALE_UP_TOP} tag="h1" direction="reverse">
+        Wrapped in H1 tag
+      </Animista>
+    </article>
+  );
+};
+
+export default App;
+```
+
+### Use delay
+
+```tsx
+import React from "react";
+import Animista, { AnimistaTypes } from "react-animista";
+
+const App: React.FC = () => {
+  return (
+    <article>
+      <Animista type={AnimistaTypes.SCALE_UP_TOP} delay="5s">
+        Animation starts in 5s
+      </Animista>
+    </article>
+  );
+};
+
+export default App;
+```
+
+### Use duration
+
+```tsx
+import React from "react";
+import Animista, { AnimistaTypes } from "react-animista";
+
+const App: React.FC = () => {
+  return (
+    <article>
+      <Animista type={AnimistaTypes.SCALE_UP_TOP} duration="5s">
+        Animation starts now & will ends in 5s
+      </Animista>
+    </article>
+  );
+};
+
+export default App;
+```
+
+### Adding custom style(s)
+
+```tsx
+import React from "react";
+import Animista, { AnimistaTypes } from "react-animista";
+
+const App: React.FC = () => {
+  return (
+    <article>
+      <Animista
+        type={AnimistaTypes.SCALE_UP_TOP}
+        style={{
+          width: 100,
+          height: 100,
+          backgroundColor: "lightblue"
+        }}
+      >
+        Custom style
+      </Animista>
+    </article>
+  );
+};
+
+export default App;
+```
+
+### Adding custom classes
+
+```tsx
+import React from "react";
+import Animista, { AnimistaTypes } from "react-animista";
+
+const App: React.FC = () => {
+  return (
+    <article>
+      <Animista
+        type={AnimistaTypes.SCALE_UP_TOP}
+        className="my-custom-class and-another-one"
+      >
+        Custom classes
+      </Animista>
+    </article>
+  );
+};
+
+export default App;
+```
+
+### On click event handler
+
+```tsx
+import React from "react";
+import Animista, { AnimistaTypes } from "react-animista";
+
+const App: React.FC = () => {
+  return (
+    <article>
+      <Animista
+        type={AnimistaTypes.SCALE_UP_TOP}
+        onClick={() => console.log("Do your job")}
+      >
+        OnClick event handler
       </Animista>
     </article>
   );

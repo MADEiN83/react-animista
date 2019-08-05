@@ -11,6 +11,7 @@ export interface IProps {
   hover?: boolean;
   viewport?: boolean;
   disabled?: boolean;
+  tag?: string;
 }
 
 const Animista: React.FC<IProps> = (props: IProps) => {
@@ -19,8 +20,9 @@ const Animista: React.FC<IProps> = (props: IProps) => {
     children,
     style = {},
     delay,
-    viewport = false,
-    disabled = false
+    viewport = true,
+    disabled = false,
+    tag = "div"
   } = props;
 
   const id = generateUniqId();
@@ -30,15 +32,19 @@ const Animista: React.FC<IProps> = (props: IProps) => {
     ...style
   };
 
+  const AnimistaComponent = React.createElement<any>(
+    tag,
+    { id, style: mergedStyles, className },
+    children
+  );
+
   return (
     <ViewportListener
       id={id}
       enabled={!disabled && viewport && !isVisible}
       onViewportVisible={() => setIsVisible(true)}
     >
-      <div id={id} style={mergedStyles} className={className}>
-        {children}
-      </div>
+      {AnimistaComponent}
     </ViewportListener>
   );
 };

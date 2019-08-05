@@ -28,14 +28,15 @@ import Animista from "react-animista";
 
 **Parameters:**
 
-| Name       | Type                  | Description                                                    |
-| ---------- | --------------------- | -------------------------------------------------------------- |
-| `type`     | `AnimistaTypes`       | (required) The type of the wanted animation.                   |
-| `style`    | `React.CSSProperties` | (optional) CSS style if needed.                                |
-| `delay`    | `string`              | (optional) Delay before animation starts.                      |
-| `hover`    | `boolean`             | (optional) If animation must starts on hover.                  |
-| `viewport` | `boolean`             | (optional) If animation must stats is visible on the viewport. |
-| `disabled` | `boolean`             | (optional) If animation must be stopped.                       |
+| Name       | Type                         | Description                                                    |
+| ---------- | ---------------------------- | -------------------------------------------------------------- |
+| `type`     | `AnimistaTypes`              | (required) The type of the wanted animation.                   |
+| `style`    | `React.CSSProperties`        | (optional) CSS style if needed.                                |
+| `delay`    | `string` (default: `0`)      | (optional) Delay before animation starts.                      |
+| `hover`    | `boolean`                    | (optional) If animation must starts on hover.                  |
+| `viewport` | `boolean` (default: `true`)  | (optional) If animation must stats is visible on the viewport. |
+| `disabled` | `boolean` (default: `false`) | (optional) If animation must be stopped.                       |
+| `tag`      | `string` (default: `div`)    | (optional) The tag to use.                                     |
 
 ## Example
 
@@ -46,11 +47,11 @@ import Animista, { AnimistaTypes } from "react-animista";
 const App: React.FC = () => {
   return (
     <article>
-      <Animista type={AnimistaTypes.SCALE_UP_TOP} viewport disabled>
+      <Animista type={AnimistaTypes.SCALE_UP_TOP}>
         Content animated even if isn't in the viewport
       </Animista>
 
-      <Animista type={AnimistaTypes.SCALE_UP_DOWN} viewport disabled>
+      <Animista type={AnimistaTypes.SCALE_UP_DOWN} viewport>
         Content animated if in the viewport
       </Animista>
     </article>

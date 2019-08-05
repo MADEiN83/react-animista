@@ -2,6 +2,7 @@ import * as React from "react";
 
 import ViewportListener from "./core/ViewportListener";
 import AnimistaTypes from "./core/animista.types";
+import { Direction } from "./core";
 
 import "./assets/index.css";
 
@@ -16,15 +17,9 @@ export interface IProps {
   tag?: string;
   className?: string;
   onClick?: Function;
-  direction?:
-    | "normal"
-    | "reverse"
-    | "alternate"
-    | "alternate-reverse"
-    | "initial"
-    | "inherit";
+  direction?: Direction;
   iterationCount?: number;
-  duration?: string | undefined;
+  duration?: string;
 }
 
 const Animista: React.FC<IProps> = (props: IProps) => {

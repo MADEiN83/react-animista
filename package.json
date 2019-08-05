@@ -1,6 +1,6 @@
 {
   "name": "react-animista",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "More than 200 free CSS animations from Animista website!",
   "main": "./dist/index.js",
   "scripts": {
@@ -8,8 +8,23 @@
     "build-css": "mkdir ./dist/src/assets && css-combine ./src/assets/*.css > ./dist/src/assets/full.css && npm run minify-css",
     "minify-css": "uglifycss ./dist/src/assets/full.css > ./dist/src/assets/index.css && rm ./dist/src/assets/full.css"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Anthony DI STEFANO",
+  "homepage": "https://github.com/MADEiN83/react-animista",
+  "bugs": {
+    "url": "https://github.com/MADEiN83/react-animista/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MADEiN83/react-animista"
+  },
+  "keywords": [
+    "CSS",
+    "React",
+    "Animation",
+    "Transition",
+    "UX/UI",
+    "Animista"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@types/react": "^16.8.24",

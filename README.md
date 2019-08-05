@@ -1,12 +1,18 @@
 # react-animista
 
+![npm](https://img.shields.io/npm/v/react-animista?style=flat-square) ![npm](https://img.shields.io/npm/dm/react-animista?style=flat-square) ![npm](https://img.shields.io/npm/dt/react-animista?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-animista?style=flat-square)
+
 React component to be able to simply use animations from : http://animista.net/play
 
 **218** free animations are available!
 
+[Live demo](https://madein83.github.io/react-animista-demo/)
+
+[Demo (source)](https://github.com/MADEiN83/react-animista-demo)
+
 ## Installation
 
-With `npm`:
+Install with [npm](https://www.npmjs.com/):
 
 ```bash
 $ npm i -s react-animista

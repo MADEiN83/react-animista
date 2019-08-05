@@ -4,6 +4,10 @@ React component to be able to simply use animations from : http://animista.net/p
 
 **218** free animations are available!
 
+[Live demo](https://madein83.github.io/react-animista-demo/)
+
+[Demo (source)](https://github.com/MADEiN83/react-animista-demo)
+
 ## Installation
 
 With `npm`:
